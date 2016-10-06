@@ -108,9 +108,24 @@ server relays all data sent on the Multipath TCP connection over the TCP
 connection and vice-versa. Smartphones create additional subflows towards
 the SOCKS server over the other available interfaces to achieve higher bandwidth. 
 
+The network operator's successful large scale deployment makes subscribers 
+increase their customer experience by both aggregated speed up and seamless handover. 
+Furturmore, it's easyily deployable since no or few dependency exists with existing cellular core and WiFi infrastructure.
+
+{figure: KT's mobile MPTCP proxy deployment model}
+
+Smartphone --- LTE/3G --- MA-GW ----- server 
+      |        (MPTCP)      |   (TCP) 
+      +-------- WiFi -------+
+
 {::comment}
 
 Some data from KT ?
+
+[SH] To Prof. Bonaventure,
+1) Because of wider coverage of mobile(cellular) then that of WiFi, we make smartphone anchor its primary session into the mobile (LTE) and wifi as a suplementary, so that session continudity is fully guaranteed even unevitable access quarlity down in WiFi environement. 
+2) If it's possible, please refer my ietf presentation material (https://www.ietf.org/proceedings/93/slides/slides-93-mptcp-3.pdf). 
+3) High resolution of deployment model exists on 2)'s pdf file page 4.
 
 {:/comment}
 
@@ -187,7 +202,7 @@ in the Hybrid Aggregation Gateway (HAG) that resides in a
 datacenter of the network operator that manages the
 two access networks that are combined. 
 
-When a client iniates a TCP connection towards a remote
+When a client initiates a TCP connection towards a remote
 server, it sends a SYN packet. This packet is intercepted
 by the CPE that virtually terminates the TCP connection
 and then adds the MP_CAPABLE TCP before forwarding the
